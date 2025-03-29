@@ -159,9 +159,7 @@ def fraud_analysis_chatbot(question, context=""):
     7. What patterns or anomalies indicate potential fraud in the dataset?
     8. How does the current fraud detection performance compare to historical data?
     9. What are the common characteristics of false positives in our fraud detection system?
-    10.Can you suggest strategies to reduce false positives without compromising detection accuracy?
-    11.What regulatory considerations should we keep in mind when analyzing fraud detection results?
-    12.How can we improve our fraud detection model based on recent data trends?
+
     """
     
     try:
@@ -202,7 +200,8 @@ with st.sidebar:
             st.session_state.current_page = page_name
 
 # Main Content
-st.title("Fix.AI: Financial Analyst Agent For Fraud Investigation")
+st.title("Fix.AI- AI Agent That investigates financial fraud") 
+
 
 # Page Routing
 if st.session_state.current_page == "SOP Builder":
@@ -432,7 +431,8 @@ with st.container():
         total_transactions = len(data)
         fraudulent_transactions = sum(data['Prediction']) if 'Prediction' in data else 0
         if 'Fraud Probability' in data:
-            average_fraud_probability = f"{data['Fraud Probability'].mean():.6f}"
+             average_fraud_probability = f"{data[data['Prediction']>0]['Fraud Probability'].mean()*100:.6f}"
+            #average_fraud_probability = f"{data['Fraud Probability'].mean():.6f}"
         else:
             average_fraud_probability = "0"
 
@@ -488,7 +488,7 @@ with st.container():
 
 # Footer
 st.markdown("---")
-st.caption("FixAI - AI-Powered Financial Fraud Investigation System")
+st.caption("Fix.AI- AI Agent That investigates financial fraud")
 
 # To run: streamlit run app.py
 
