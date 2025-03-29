@@ -175,12 +175,12 @@ def fraud_analysis_chatbot(question, context=""):
 
 # Navigation Sidebar
 with st.sidebar:
-    col1, col2 = st.columns([1, 3])
-    with col1:
-        st.image(r"C:\Users\junior.turatsinze_on\Desktop\Hackthon_Irembo\venv\images\fixer.brender logo.png",
-                 width=1000)
-    with col2:
-        st.markdown("### Navigation")
+    # col1, col2 = st.columns([1, 3])
+    # with col1:
+    #     st.image(r"C:\Users\junior.turatsinze_on\Desktop\Hackthon_Irembo\venv\images\fixer.brender logo.png",
+    #              width=1000)
+    # with col2:
+    #     st.markdown("### Navigation")
 
     pages = {
         "Dashboard": "🏠",
