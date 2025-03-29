@@ -7,7 +7,7 @@ import time
 from datetime import datetime
 
 # Configure OpenAI API
-openai.api_key = os.environ['OPENAI_API_KEY']
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 try:
     response = openai.ChatCompletion.create(
         model="gpt-4",
