@@ -5,9 +5,11 @@ import openai
 import os
 import time
 from datetime import datetime
+from dotenv import load_dotenv
 
 # Configure OpenAI API
-openai.api_key = os.environ.get('OPENAI_API_KEY')
+load_dotenv()  # Loads variables from .env
+openai.api_key = os.getenv("OPENAI_API_KEY")
 try:
     response = openai.ChatCompletion.create(
         model="gpt-4",
