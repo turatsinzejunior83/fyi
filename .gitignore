@@ -1,5 +1,5 @@
 echo "venv/" >> .gitignore
 
 venv/ 
-
+.venv
 .env

@@ -360,8 +360,16 @@ else:  # Dashboard
                     predictions = model.predict(data[required_features])
                     prediction_proba = model.predict_proba(data[required_features])[:, 1]
                     
+                    if len(predictions)>0:
+                        st.session_state.predictions = predictions
+                        st.session_state.prediction_proba = prediction_proba
+                    else:
+                        predictions = st.session_state.predictions
+                        prediction_proba = st.session_state.prediction_proba
+                    
                     data['Prediction'] = predictions
                     data['Fraud Probability'] = prediction_proba
+                    
                     
                     st.subheader("Fraud Detection Results")
                     st.write(data)
@@ -381,7 +389,12 @@ else:  # Dashboard
         
         except Exception as e:
             st.error(f"Error processing file: {str(e)}")
-
+    
+    if "Predictions" not in data.columns:
+        if "predictions" in st.session_state and "prediction_proba" in st.session_state:
+            data['Prediction'] = st.session_state.predictions
+            data['Fraud Probability'] = st.session_state.prediction_proba
+    
     # Single Transaction Analysis
     st.header("Single Transaction Analysis")
     input_fields = {}
