@@ -6,6 +6,10 @@ import os
 import time
 from datetime import datetime
 from dotenv import load_dotenv
+import pandas as pd
+
+# Example initialization
+data = pd.DataFrame()  # Creates an empty DataFrame
 
 # Configure OpenAI API
 load_dotenv()  # Loads variables from .env
